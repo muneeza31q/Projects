@@ -1,0 +1,75 @@
+#Data Cleaning
+df.text = df.text.replace(re.compile(r"From: \S*@\S*\s?"),)
+df.text = df.text.replace(re.compile('\s+')," ")
+df.text = df.text.replace(re.compile("\'"),"")
+
+#Data Representation
+tfidf_victorizer = TfidfVectorizer(stop_words="english", min_df=3)
+
+#Binary Classification
+binary_labels = np.where(df.target < 10, 0, 1)
+Counter(binary_labels)
+X,y = df.text, binary_labels
+
+#Text Preprocessing
+documents = []
+
+from nltk.stem import WordNetLemmatizer
+
+stemmer = WordNetLemmatizer()
+
+for sen in range(0, len(X)):
+    # Remove all the special characters
+    document = re.sub(r'\W', ' ', str(X[sen]))
+    
+    # remove all single characters
+    document = re.sub(r'\s+[a-zA-Z]\s+', ' ', document)
+    
+    # Remove single characters from the start
+    document = re.sub(r'\^[a-zA-Z]\s+', ' ', document) 
+    
+    # Substituting multiple spaces with single space
+    document = re.sub(r'\s+', ' ', document, flags=re.I)
+    
+    # Removing prefixed 'b'
+    document = re.sub(r'^b\s+', '', document)
+    
+    # Converting to Lowercase
+    document = document.lower()
+    
+    # Lemmatization
+    document = document.split()
+
+    document = [stemmer.lemmatize(word) for word in document]
+    document = ' '.join(document)
+    
+    documents.append(document)
+    
+    from sklearn.feature_extraction.text import CountVectorizer
+vectorizer = CountVectorizer(max_features=1500, min_df=5, max_df=0.7, stop_words=stopwords.words('english'))
+X = vectorizer.fit_transform(documents).toarray()
+from sklearn.metrics import classification_report, confusion_matrix, accuracy_score
+
+print(confusion_matrix(y_test,y_pred))
+print(classification_report(y_test,y_pred))
+print(accuracy_score(y_test, y_pred))
+
+with open('text_classifier', 'rb') as training_model:
+    model = pickle.load(training_model)
+y_pred2 = model.predict(X_test)
+
+print(confusion_matrix(y_test, y_pred2))
+print(classification_report(y_test, y_pred2))
+print(accuracy_score(y_test, y_pred2))
+
+pretty_confusion_matrix(y_test, pred_test)
+for scorer in [fl_score, precision_score, recall_score]:
+    name = scorer._name_
+    print(f'{name}: {scorer(y_test, pred_test, average="micro"):.4f}')
+
+#EDA
+DF.describe()
+DF["comp.graphics"].value_counts()
+DF.groupby(['fl.score', 'recall_score']).mean()
+
+#There is a bit of overfitting, given that the performance on the training set is way higher than on the test set. This is something that could potentially be improved with hyperparameter tuning, especially increasing regularisation.
