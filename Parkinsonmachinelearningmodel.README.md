@@ -2,7 +2,7 @@
 
 4/12/2022 
 
-Primary aim: to build a machine-learning model that accurately predicts Parkinson's Disease (PD) based on extracted features from patient voice recordings using RStudio/R. 
+Primary aim: To build a machine-learning model that accurately predicts Parkinson's Disease (PD) based on extracted features from patient voice recordings using RStudio/R. 
 We aim to evaluate feature subset performance in accurately classifying PD patients as such, and to determine which of several different classification models has the highest accuracy for predicting PD.
 
 Methods:
