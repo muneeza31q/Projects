@@ -1,6 +1,5 @@
 ---
 title: "Fundamentals of Data Analytics and Predictions (FINAL PROJECT)"
-author: "Mira Baltaji, Asri Margono, Madeline Roberts, Muneeza Qureshi, Hyun Kim"
 date: "4/14/2022"
 output: html_document
 ---
