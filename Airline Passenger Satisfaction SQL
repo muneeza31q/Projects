@@ -1,0 +1,87 @@
+/*Used MicrosoftSQL to pull certain information */
+/*Overseeing overall database */
+SELECT *
+FROM [SQL_Airplane].[dbo].[airline];
+
+/*Seeing distinct values in column Class and Satisfaction*/
+SELECT DISTINCT Class /*, Satisfaction*/
+FROM [SQL_Airplane].[dbo].[airline];
+
+SELECT DISTINCT(Satisfaction)
+FROM [SQL_Airplane].[dbo].[airline];
+
+/*Count how many 'Satisfied' and 'Neutral or Dissatisfied' */
+SELECT Satisfaction, COUNT(*) AS Count
+FROM [SQL_Airplane].[dbo].[airline]
+WHERE Satisfaction IN ('Satisfied', 'Neutral or Dissatisfied')
+GROUP BY Satisfaction;
+
+/*Use Case when */
+SELECT *,
+CASE
+	WHEN Age > 40 THEN 'Old'
+	WHEN Age BETWEEN 11 AND 39 THEN 'Young'
+	ELSE 'Baby'
+END
+FROM [SQL_Airplane].[dbo].[airline]
+ORDER BY Age;
+
+/*Average Age */
+SELECT AVG(Age) AS AvgAge
+FROM [SQL_Airplane].[dbo].[airline];
+
+/*Partition */
+SELECT [ID], [Age], [Gender], [Customer Type], [Type of Travel], Satisfaction,
+COUNT(Gender) OVER (PARTITION BY Gender) as Total_Gender
+FROM [SQL_Airplane].[dbo].[airline]
+ORDER BY [Age] DESC;
+
+
+/*Create TABLE AS Satisfied*/
+IF OBJECT_ID('Satisfied') IS NOT NULL
+    DROP TABLE Satisfied;
+GO
+SELECT *
+INTO Satisfied
+FROM [SQL_Airplane].[dbo].[airline]
+WHERE Satisfaction = 'Satisfied';
+
+SELECT *
+FROM Satisfied;
+
+SELECT COUNT(*)
+FROM Satisfied;
+
+/*Select top 30 */
+SELECT TOP 30 [Departure and Arrival Time Convenience], [Ease of Online Booking], [Check-in Service], [Seat Comfort], Cleanliness, [Food and Drink], [In-flight Service], [In-flight Wifi Service], [In-flight Entertainment], [Baggage Handling], Satisfaction
+FROM [SQL_Airplane].[dbo].[airline]
+Where Satisfaction='Satisfied';
+
+/*CREATE TABLE Disatisfied AS */
+IF OBJECT_ID('Dissatisfied') IS NOT NULL
+    DROP TABLE Dissatisfied;
+GO
+SELECT *
+INTO Dissatisfied
+FROM [SQL_Airplane].[dbo].[airline]
+WHERE Satisfaction = 'Neutral or Dissatisfied';
+
+SELECT *
+FROM Dissatisfied;
+
+SELECT COUNT(*)
+FROM Dissatisfied;
+
+/*UPDATE Dissatisfied
+SET Satisfaction = 'Neutral or Dissatisfied';*/
+
+/*see if the tables were created and in the SQL Airplane database folder successfully */
+USE [SQL_Airplane];
+SELECT *
+FROM sys.tables;
+
+/*or*/
+
+SELECT *
+FROM sys.tables
+WHERE name IN ('Satisfied', 'Dissatisfied')
