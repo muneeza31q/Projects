@@ -67,3 +67,28 @@ As for type of travel, Business travel has more customer satisfaction rating tha
 As for In-flight WiFi service, the better quality of WiFi service, the higher chances of customer satisfaction.
 
 Departure and Arrival Convience had a positive correlation, which means that this factor contributed to customer satisfaction.
+
+
+
+
+Data Report for the airline business:
+
+Executive Summary
+This report analyzes passenger satisfaction data from a major airline company to identify the key factors that impact passenger satisfaction. This analysis found that the most significant factors impacting passenger satisfaction were online boarding, in-flight WiFi service, and in-flight entertainment. I recommend that the airline focus on improving these factors to enhance passenger satisfaction.
+
+Introduction
+The purpose of this report is to analyze passenger satisfaction data from an airline company. The data was collected from customer surveys and includes responses from over 120,000 passengers. The objective of the analysis is to identify the factors that impact passenger satisfaction and provide recommendations for improvement.
+
+Methodology
+The data was collected from customer surveys conducted by the airline company. The data was pre-processed and cleaned to remove any invalid or missing data. The variables used in the analysis include age, online boarding, arrival delay, departure delay, arrival and departure convenience, seat comfort, in-flight Wifi, in-flight service, and food. I assumed that the data was representative of the larger population of the airline's customers.
+
+Results
+In this analysis, it seems that online boarding, in-flight WiFi service, and in-flight entertainment had the greatest impact on passenger satisfaction, with the highest negative correlation coefficient of -0.47, -0.28, and -0.36 respectively. Departure and Arrival Convenience had the strongest positive correlation with passenger satisfaction, with a coefficient of 0.28.
+Descriptive statistics and visualizations of the data showed that 72% of passengers rated their overall experience as neutral or dissatisfied, with the majority of them being first time passengers. In-flight service and baggage had the highest mean ratings, while online boarding and in-flight WiFi service had the lowest mean ratings. These ratings are from airline passengers who rated satisfied and neutral/dissatisfied.
+
+Discussion
+The results of our analysis suggest that online boarding, in-flight WiFi service, and in-flight entertainment are the key factors that impact passenger satisfaction. Improving these factors could lead to higher passenger satisfaction and increased loyalty. Furthermore, customers who have easier online boarding experience or maybe even more online boarding options with additional help (like AI chat box or faster phone service), such customers have higher chances of satisfaction. Since Departure and Arrival contributed to customer satisfaction strongly, it should be continued to used and maybe merge with Online Boarding to increase airline passenger satisfaction. Providing more features on their Online Boarding, such as QR scan code, text message updates, or email updates. As for In-flight Wifi service, the better quality of WiFi service, the higher chances of customer satisfaction. They should try providing free In-flight Wifi service that has high quality resolution. Also, adding a variety of recent TV shows and movies that are free to the passengers would be helpful. 
+
+Conclusion
+Our analysis identified online boarding, in-flight WiFi service, and in-flight entertainment as the key factors that impact passenger satisfaction. I recommend that the airline focus on improving these factors to enhance passenger satisfaction and increase loyalty. The data has some limitations, but our findings provide valuable insights into the factors that are most important to passengers.
+
